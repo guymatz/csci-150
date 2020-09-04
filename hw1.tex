@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+
+    
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+
+
+
+\begin{problem} In how many ways can we stack 10 books?
+\center{10!}
+\end{problem}
+
+\newpage
+\begin{problem} Compute 1 + 2 + 4 +. . .+ 512
+Computing the sum is impossible since the definition of the sum is ambiguous.
+\end{problem}
+\newpage
+
+\begin{problem} Find $\sum_{i=0}^{2020}(3i+ 1)$.
+
+\begin{align*}
+\sum_{i=0}^{2020}(3i+ 1) &= 2021 + 3 * \sum_{i=0}^{2020}i
+\\
+                         &= 2021 + 3 * \frac{2020 * 2021}{2}
+                         \\
+                         &= 2021 + 3 * 2041210
+                         \\
+                         &= 6125651
+\end{align*}
+
+\end{problem}
+\newpage
+
+\begin{problem} Simplify this: $\left(\prod_{i=1}^{n}2i\right)\left(\prod_{i=1}^{n}(2i-1)\right)$ (the simplest possible expression you can get)
+
+\end{problem}
+\newpage
+
+\begin{problem} What is the 2020th term of the following sequence: 3,10,17,24,31, . . .
+
+\end{problem}
+\newpage
+
+\begin{problem} In a snakes and ladders game,  each snake has two heads (a two-headed snake).   Heads  must  still  be  above  the  tail.   In  how  many  ways  can  we place a two-headed snake on a 10×10 board?  Hint:  use the product rule and adjust for over-counting.  Hint:  permuting 3 squares can be done in $3! = 6$ ways.
+
+\end{problem}
+\newpage
+
+\begin{problem} The degrees in a graph are as follows ${1,2,3,3,4}$.  Is this graph possible to construct.  If “Yes”, provide one, if “No”, Justify.  Hint:  Read Section 5 in Note 1.
+
+\end{problem}
+\newpage
+
+\begin{problem} We have 6 books on mathematics, 3 on physics, and 1 on chemistry, and you must choose 1 book.  In how many ways can you do that?  (Also think why the answer is not equal to $6 \cdot 3 \cdot 1$ using the product rule.)
+
+\end{problem}
+\newpage
+
+\begin{problem} \textbf{Snakes and Ladders} \\
+Note:  For this problem, the last few pages of Lecture 3 can be very helpful.
+\\\\
+Consider  a  regular  8×8  chessboard.   The  chessboard  is  to  be  used  to  play snakes and ladders, but there is an extra condition on how to place snakes on the chessboard:  The head and tail of a snake must occupy squares of different color.  Ladders remain unconstrained.  In how many ways can we:
+\begin{enumerate}[label=()a)]
+\item Place one snake.
+\item Place two snakes.
+\item Place a ladder and a snake.  (Hint:  think about the snake first to make the phases independent.)
+\end{enumerate}
+In answering the questions above,  reason using the product rule as we did in class, and explicitly describe the different phases and determine in how many ways each phase can be carried out.  In addition,  justify any adjustment you make due to possible over-counting.
+\end{problem}
+\newpage
+
+\begin{problem} 
+
+\end{problem}
+\newpage
+
+\begin{problem} 
+
+\end{problem}
+\newpage
+
+\end{document}
