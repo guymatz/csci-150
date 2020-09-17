@@ -61,13 +61,21 @@ Hunter College}
 
 
 
-\begin{problem} In how many ways can we stack 10 books?
-\center{10!}
+\begin{problem} In how many ways can we stack 10 books?\\
+\\
+We can pick the first book in 10 ways, the second book in 9 ways, etc.  Using the product rule, we find we can stack the books om $10!$ ways
 \end{problem}
 
 \newpage
 \begin{problem} Compute 1 + 2 + 4 +. . .+ 512
-Computing the sum is impossible since the definition of the sum is ambiguous.
+\\\\
+%Computing the sum is impossible since the definition of the sum is ambiguous.
+\begin{align*}
+1 + 2 + 4 + \dots + n_j &= n_{j+1} - 1
+\\
+1 + 2 + 4 + \dots + 512 &= 1024 - 1
+\\                      &= 1023
+\end{align*}
 \end{problem}
 \newpage
 
@@ -75,7 +83,7 @@ Computing the sum is impossible since the definition of the sum is ambiguous.
 
 \begin{align*}
 \sum_{i=0}^{2020}(3i+ 1) &= 2021 + 3 * \sum_{i=0}^{2020}i
-\\
+                         \\
                          &= 2021 + 3 * \frac{2020 * 2021}{2}
                          \\
                          &= 2021 + 3 * 2041210
@@ -87,26 +95,50 @@ Computing the sum is impossible since the definition of the sum is ambiguous.
 \newpage
 
 \begin{problem} Simplify this: $\left(\prod_{i=1}^{n}2i\right)\left(\prod_{i=1}^{n}(2i-1)\right)$ (the simplest possible expression you can get)
+\\\\
+$2i$ from the first product represents all even numbers up to $2n$, while $2i-1$ is all odd numbers to $2n-1$.  These two together are all numbers to $2i$, thus we have  
+\begin{center}
+$\prod_{i=1}^{2n}i$ or $2n!$
+\end{center}
 
 \end{problem}
 \newpage
 
 \begin{problem} What is the 2020th term of the following sequence: 3,10,17,24,31, . . .
+\\
+%See chapter 0, section 2, mapping
+\begin{align*}
+3 + (n-1) * 7 &= 3 + (2019)* 7 \\
+              &= 14136
+\end{align*}
 
 \end{problem}
 \newpage
 
 \begin{problem} In a snakes and ladders game,  each snake has two heads (a two-headed snake).   Heads  must  still  be  above  the  tail.   In  how  many  ways  can  we place a two-headed snake on a 10×10 board?  Hint:  use the product rule and adjust for over-counting.  Hint:  permuting 3 squares can be done in $3! = 6$ ways.
-
+\\\\
+My thinking here is this: There are two heads, so there are $n-2$ places for the tail.  For each of these $n-2$ places, call the $i^{th}$ one of them $i$,  there are $n-i$ places for the two heads.  For example, on the 10x10 board in this problem, let us say we put the tail on square 5 towards the bottom.  In this case there are 95 spots for the two heads, which permute two ways, so there are ${95 \choose 2}$ ways to put the heads on the board with the tail on square 5.  We can do this with 98 of the squares, since two are taken up by heads, so we have the following when $n=100$:
+\begin{center}
+$\sum_{i=1}^{n-2} {i \choose 2}$\\
+$ = \sum_{i=1}^{98} {i \choose 2}$\\
+$ = 161700$
+\end{center}
 \end{problem}
 \newpage
 
 \begin{problem} The degrees in a graph are as follows ${1,2,3,3,4}$.  Is this graph possible to construct.  If “Yes”, provide one, if “No”, Justify.  Hint:  Read Section 5 in Note 1.
-
+\\\\
+The Handshake lemma tells us that the sum of degrees is equal to twice the number of edges, and therefore the sum of degrees is always even.  The sum of degrees here is 13 - odd - so the graph is not possible.
+%This also implies that the sum of degrees is always even. This in turn implies that there is a even number of vertices with odd degrees
 \end{problem}
 \newpage
 
 \begin{problem} We have 6 books on mathematics, 3 on physics, and 1 on chemistry, and you must choose 1 book.  In how many ways can you do that?  (Also think why the answer is not equal to $6 \cdot 3 \cdot 1$ using the product rule.)
+\\\\55
+Is this a trick question?
+\begin{center}
+10
+\end{center}
 
 \end{problem}
 \newpage
@@ -114,24 +146,53 @@ Computing the sum is impossible since the definition of the sum is ambiguous.
 \begin{problem} \textbf{Snakes and Ladders} \\
 Note:  For this problem, the last few pages of Lecture 3 can be very helpful.
 \\\\
+In answering the questions below  reason using the product rule as we did in class, and explicitly describe the different phases and determine in how many ways each phase can be carried out.  In addition,  justify any adjustment you make due to possible over-counting.
+\\\\
 Consider  a  regular  8×8  chessboard.   The  chessboard  is  to  be  used  to  play snakes and ladders, but there is an extra condition on how to place snakes on the chessboard:  The head and tail of a snake must occupy squares of different color.  Ladders remain unconstrained.  In how many ways can we:
-\begin{enumerate}[label=()a)]
+\begin{enumerate}[label=(\alph*)]
 \item Place one snake.
+\\
+The head can be on $n/2$ squares, the tail on $n/2$ as well.  We then divide by two due to over-counting
+\\
+Head on black square
+$$\dfrac{32 \cdot 32}{2} = 512$$
+\\
+Head on white square
+$$\dfrac{32 \cdot 32}{2} = 512$$
+\\
+Total ways to place one snake with head and tail of a snake on squares of different color: 1024
+
+\newpage
 \item Place two snakes.
+\\\\
+Ways to place the first snake: 1024
+\\
+Ways to place the second snake: $2 * \dfrac{31 * 31}{2} = 961$ 
+\\
+Ways to place two snakes: $\dfrac{1024 * 961}{2} = 492032$  
+
+\newpage
 \item Place a ladder and a snake.  (Hint:  think about the snake first to make the phases independent.)
+\\\\
+Are we putting down one first, then the other?  I'm going to think about them independently:
+\\\\
+Ways to place a snake (from a above): 1024
+\\
+Ways to place a ladder: $\dfrac{64 * 63}2{}= 2016$
+\\
+Ways to place a snake and a ladder = $1024 * 2016 = 2064384$ 
+\\\\
+If we were putting a snake down first, then a ladder, we get:
+\\
+Ways to place a snake (from a above): 1024
+\\
+Ways to place a ladder: $\dfrac{62 * 61}{2} = 1891$
+\\
+Ways to place a snake and a ladder = $1024 * 1891 = 1936384$ 
 \end{enumerate}
-In answering the questions above,  reason using the product rule as we did in class, and explicitly describe the different phases and determine in how many ways each phase can be carried out.  In addition,  justify any adjustment you make due to possible over-counting.
-\end{problem}
-\newpage
-
-\begin{problem} 
 
 \end{problem}
-\newpage
+\begin{center}
 
-\begin{problem} 
-
-\end{problem}
-\newpage
-
+\end{center}
 \end{document}
