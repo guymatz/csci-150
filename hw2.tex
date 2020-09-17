@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+
+    
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} In how many ways can we seat 10 people on a round table.  Be careful for overcounting; for instance, the following seat assignments for 3 people on a round table are equivalent.?\\
+\\
+If we keep one person fixed and permute the rest we get $(n-1)!$.  So for 10 people we get $9!$
+\end{problem}
+\newpage
+\begin{problem} In how many ways can we choose one red candy and one blue candy out of 13 red and 17 blue candies?
+\\\\
+Are the candies distinguishable?
+\end{problem}
+\newpage
+
+\begin{problem} We have 100 points in the plane.  How many line segments do these points define?
+\\\\
+\Large
+For $n$ points, the first point, combined will all of the others, defines $n-1$ line segments, the second point defines $n-2$ line segments and so on.  Therefore, $n$ points define $\sum_{i=1}^{n-1} = (n-1)* \dfrac{n}{2}$ line segments.  With $n=100$ we have $99*50 = 4950$ points
+\end{problem}
+\newpage
+
+\begin{problem} A  lottery  ticket  has  the  numbers $\{1,2, . . . ,60\}$ and  one  must  choose  5 numbers to play.  How many possible tickets can we make?
+\\\\
+\Large
+$${60 \choose 5}$$
+\end{problem}
+\newpage
+
+\begin{problem} Given the digits $\{0,1,2,3,4,5,6,7,8,9\}$, how many 5 digit numbers can we make with different digits?
+\\\\
+Since the 5 digit number cannot start with 0, we have 9 options for ther first digit, then 9 options for the second digit, 8 options for the third, 7 for the 4th and 6 for the 5th,
+$$ 9 * 9 * 8 * 7 * 6 = 27216$$
+\end{problem}
+\newpage
+
+\begin{problem} How many words of length 7 (not necessarily found in the dictionary) can we make using the alphabet ${a, b, . . . , z}$.
+\\\\
+\Large
+$$26^7$$
+\end{problem}
+\newpage
+
+\begin{problem} How many subsets of $S=\{1,2,3, . . . , n\}$ don’t have 1?
+\\\\
+\Large
+$$\frac{2^n}{2}$$
+\end{problem}
+\newpage
+
+\begin{problem} True of False:  The number of ways we can seat 5 people on 10 chairs is more than the number of ways we can seat 10 people on 5 chairs.
+\\\\
+\Large
+False.  They are equal.
+\end{problem}
+\newpage
+
+\begin{problem} Mr.  and Mrs.  Zetha want to choose a name for their baby such that its mono-gram (first, middle, and last initials) is in alphabetical.  Observe the last letter is always Z.
+\\
+\\
+\begin{enumerate}
+\item How  many  such  monograms  are  possible  if  all  letters  must  be  different?  Count in two ways:
+\begin{enumerate}
+\item using the addition principle by dividing the possibilities into disjoint categories based on the starting letter.
+\end{enumerate}
+\begin{enumerate}
+\item using the product principle by breaking the task of making a name in tw ophases.  Explain your procedure and possible over counting.
+\end{enumerate}
+
+
+\newpage
+\item What if the requirement that the monogram must be in alphabetical order is dropped (but letters must still be different)? Use any method to find the answer.
+
+
+\newpage
+\item What  if  letters  can  now  repeat  (but  must  still  be  in  alphabetical  order)?Use any method to find the answer.
+\end{enumerate}
+\end{problem}
+
+
+\end{document}
