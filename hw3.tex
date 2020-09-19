@@ -1,0 +1,151 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+
+    
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} Find $(\{2,4,6\} \cup  \{6,4\}) \cap \{4,6,8\}$
+\\
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} Find $\{1,2,3\} \times {0,1}$
+\\
+\Large
+
+\end{problem}
+\newpage
+\begin{problem} Find $P(\{7,8,9\})-P({7,9}$), where $P(S)$ is the power set of $S$ (the set of all subsets of $S$), and $S-T = \{x|x \in S \text{ and } x \notin T\}$.
+\\
+\Large
+
+\end{problem}
+\newpage
+\begin{problem} Find $P(P(\{2\}))$
+\\
+\Large
+
+\end{problem}
+\newpage
+\begin{problem} Describe the set of all 3-digit positive integers using set notation.
+\\
+\Large
+
+\end{problem}
+\newpage
+\begin{problem} Describe the set of all numbers divisible by 3 or 5 using set notation.
+\\
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} Which  of  the  following  is  true?   (there  is  only  one):
+\\\\
+\begin{itemize}
+\item $\emptyset=\{\emptyset\}$
+\item $|\emptyset|=  0$
+\item $|P(\emptyset)|= 0$
+\item $\emptyset \in \{ \}$
+\end{itemize}
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} Let $P$ be a set of people, $U$ a set of umbrellas, and $D$ the set of days of the year.  A day can be either good or bad.  Define $f:P \to U$ such that $f(p) =u$ means person $p$ owns umbrella $u$ (each person owns exactly one umbrella).  Write the following statement using symbols in $\{\forall,\exists,\implies\}$
+\begin{center}
+“If two people own the same umbrella, then all days are bad.”
+\end{center}
+Hint: Express “two people own the same umbrella” and “all days are bad”separately, then combine them.
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} We have seen in class and recitation, that the power set of a set $S$ has cardinality $2^{|S|}$ (assuming $S$ is finite).  Let $A$ and $B$ be two finite sets.  Is it possible that $|P(A \times B)|=|P(A)|\cdot|P(B)|$?  If Yes, give an example, if No say why.
+\\
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} You are on a trip and you find 3 kinds of postcards $K=\{A, B, C\}$.  You have 12 friends.  You want to send postcards to your friends while observing the following rules:
+\begin{itemize}
+\item Each friend must receive at least one postcard\\
+\item No friend can receive two or more postcards of the same kind
+\end{itemize}
+In how many ways can you send the postcards?  Hint:  Think about the powerset of $K$ to figure out the possibilities for each friend, then use the product rule.
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} Consider the following 4 functions.
+\begin{itemize}
+\item $f:N \to R ,f(x) = 1/x$\\
+\item $g:N \times N \to Q+,g(x, y) =x/y,$ where $Q+$ is the set of all rational numbers greater than zero (the positive rational numbers)\\
+\item $h:Z \to Z ,h(x) = x^2$\\
+\item $w:R \to R, w(x) = 3x+ 1$.
+\end{itemize}
+Place them appropriately in the following four categories:  one-to-one and/or onto
+\\
+\Large
+
+\end{problem}
+\end{document}
