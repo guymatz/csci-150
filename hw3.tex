@@ -35,13 +35,15 @@
 \usepackage{setspace}
     %package gives us the ability to set the line spacing.
 \usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
 
 \newtheorem{theorem}{Theorem}
 \theoremstyle{definition} 
 \newtheorem{problem}[theorem]{Problem}
     %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
 
-    
 \newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
     %this is the environment for writing solutions. Doble spaced, with an end of proof
     %box at the end
@@ -61,38 +63,45 @@ Hunter College}
 \begin{problem} Find $(\{2,4,6\} \cup  \{6,4\}) \cap \{4,6,8\}$
 \\
 \Large
-
+\begin{align*}
+(\{2,4,6\} \cup  \{6,4\}) \cap \{4,6,8\} &= \{2,4,6\} \cap \{4,6,8\}\\
+        &=  \{4,6\}
+\end{align*}
 \end{problem}
 \newpage
 
-\begin{problem} Find $\{1,2,3\} \times {0,1}$
+\begin{problem} Find $\{1,2,3\} \times \{0,1\}$
 \\
+$$\left\{ (1,0), (1,1), (2,0), (2,1), (3,0), (3,1) \right\}$$
 \Large
 
 \end{problem}
 \newpage
 \begin{problem} Find $P(\{7,8,9\})-P({7,9}$), where $P(S)$ is the power set of $S$ (the set of all subsets of $S$), and $S-T = \{x|x \in S \text{ and } x \notin T\}$.
-\\
+\\\\
 \Large
-
+$$\mathcal{P}(\{7,8,9\}) - \mathcal{P}(\{7,9\}) = \left\{ \{8\}, \{7,8\}, \{8, 9\} , \{7,8,9\} \right\}$$
 \end{problem}
 \newpage
-\begin{problem} Find $P(P(\{2\}))$
+\begin{problem} Find $\mathcal{P}(\mathcal{P}(\{2\}))$
 \\
 \Large
-
+$$\mathcal{P}(\{2\}) = \{\emptyset, \{2\}\}$$
+$$\mathcal{P}(\{\emptyset, \{2\}\}) = \{\emptyset, \{2\}, \{\emptyset, \{2\}\}\}$$
 \end{problem}
 \newpage
 \begin{problem} Describe the set of all 3-digit positive integers using set notation.
 \\
 \Large
-
+$$\{100, 101, 102, ... , 999\}$$
+\center{or}
+$$ \{ x | x \geq 100 \text{ and } x \leq 999 \}$$
 \end{problem}
 \newpage
 \begin{problem} Describe the set of all numbers divisible by 3 or 5 using set notation.
 \\
 \Large
-
+$$\{x : 3 | x \cup 5|x \}$$
 \end{problem}
 \newpage
 
@@ -100,7 +109,7 @@ Hunter College}
 \\\\
 \begin{itemize}
 \item $\emptyset=\{\emptyset\}$
-\item $|\emptyset|=  0$
+\item $|\emptyset|=  0 \color{red}\checkmark$
 \item $|P(\emptyset)|= 0$
 \item $\emptyset \in \{ \}$
 \end{itemize}
@@ -118,10 +127,10 @@ Hint: Express “two people own the same umbrella” and “all days are bad”s
 \end{problem}
 \newpage
 
-\begin{problem} We have seen in class and recitation, that the power set of a set $S$ has cardinality $2^{|S|}$ (assuming $S$ is finite).  Let $A$ and $B$ be two finite sets.  Is it possible that $|P(A \times B)|=|P(A)|\cdot|P(B)|$?  If Yes, give an example, if No say why.
-\\
+\begin{problem} We have seen in class and recitation, that the power set of a set $S$ has cardinality $2^{|S|}$ (assuming $S$ is finite).  Let $A$ and $B$ be two finite sets.  Is it possible that $|\mathcal{P}(A \times B)|=|\mathcal{P}(A)|\cdot|\mathcal{P}(B)|$?  If Yes, give an example, if No say why.
+\\\\
 \Large
-
+This is not possible.  Consider two sets $A$ and $B$, where $|A| = n$, and $|B| = m$.  Then $|\mathcal{P}(A \times B)| = 2^{nm}$ and $|\mathcal{P}(A)| \cdot |\mathcal{P}(B)| = 2^{n+m}$.  However, $nm = n+m$ has no solution, therefore it is not possible that $|\mathcal{P}(A \times B)|=|\mathcal{P}(A)|\cdot|\mathcal{P}(B)|$.
 \end{problem}
 \newpage
 
@@ -132,20 +141,32 @@ Hint: Express “two people own the same umbrella” and “all days are bad”s
 \end{itemize}
 In how many ways can you send the postcards?  Hint:  Think about the powerset of $K$ to figure out the possibilities for each friend, then use the product rule.
 \Large
-
+\\\\
+Each friend can receive up to 3 postcards and there are 12 of them, so we have $3^{12} = 531441$
 \end{problem}
 \newpage
 
 \begin{problem} Consider the following 4 functions.
 \begin{itemize}
-\item $f:N \to R ,f(x) = 1/x$\\
-\item $g:N \times N \to Q+,g(x, y) =x/y,$ where $Q+$ is the set of all rational numbers greater than zero (the positive rational numbers)\\
-\item $h:Z \to Z ,h(x) = x^2$\\
-\item $w:R \to R, w(x) = 3x+ 1$.
+\item $f:\mathbb{N} \to \mathbb{R} ,f(x) = 1/x$\\
+\item $g:\mathbb{N} \times \mathbb{N} \to \mathbb{Q}+,g(x, y) =x/y,$ where $\mathbb{Q}+$ is the set of all rational numbers greater than zero (the positive rational numbers)\\
+\item $h:\mathbb{Z} \to \mathbb{Z} ,h(x) = x^2$\\
+\item $w:\mathbb{R} \to \mathbb{R}, w(x) = 3x+ 1$.
 \end{itemize}
 Place them appropriately in the following four categories:  one-to-one and/or onto
 \\
 \Large
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|}
+\hline
+Function & 1-1 ? & onto ? \\ \hline
+$f$ & Y & n \\ \hline
+$g$ & n & Y \\ \hline
+$h$ & n &  n\\ \hline
+$w$ & Y &  Y\\ \hline
+\end{tabular}
+\end{table}
 
 \end{problem}
 \end{document}
