@@ -72,9 +72,8 @@ Hunter College}
 
 \begin{problem} Find $\{1,2,3\} \times \{0,1\}$
 \\
-$$\left\{ (1,0), (1,1), (2,0), (2,1), (3,0), (3,1) \right\}$$
 \Large
-
+$$\left\{ (1,0), (1,1), (2,0), (2,1), (3,0), (3,1) \right\}$$
 \end{problem}
 \newpage
 \begin{problem} Find $P(\{7,8,9\})-P({7,9}$), where $P(S)$ is the power set of $S$ (the set of all subsets of $S$), and $S-T = \{x|x \in S \text{ and } x \notin T\}$.
@@ -87,7 +86,7 @@ $$\mathcal{P}(\{7,8,9\}) - \mathcal{P}(\{7,9\}) = \left\{ \{8\}, \{7,8\}, \{8, 9
 \\
 \Large
 $$\mathcal{P}(\{2\}) = \{\emptyset, \{2\}\}$$
-$$\mathcal{P}(\{\emptyset, \{2\}\}) = \{\emptyset, \{2\}, \{\emptyset, \{2\}\}\}$$
+$$\mathcal{P}(\{\emptyset, \{2\}\}) = \{\emptyset, \{ \emptyset \}, \{\{2\}\}, \{\emptyset, \{2\}\}\}$$
 \end{problem}
 \newpage
 \begin{problem} Describe the set of all 3-digit positive integers using set notation.
@@ -95,13 +94,15 @@ $$\mathcal{P}(\{\emptyset, \{2\}\}) = \{\emptyset, \{2\}, \{\emptyset, \{2\}\}\}
 \Large
 $$\{100, 101, 102, ... , 999\}$$
 \center{or}
-$$ \{ x | x \geq 100 \text{ and } x \leq 999 \}$$
+$$ \{ x \in \mathbb{N}| x \geq 100 \text{ and } x \leq 999 \}$$
 \end{problem}
 \newpage
 \begin{problem} Describe the set of all numbers divisible by 3 or 5 using set notation.
 \\
 \Large
-$$\{x : 3 | x \cup 5|x \}$$
+$$\{x \in \mathbb{Z}: 3 | x \cup 5|x \}$$
+\\\\
+Note: I wanted to write $\{x \in \mathbb{Z}| 3 | x \cup 5|x \}$ but the pipe symbols looked awkward.  What to do?
 \end{problem}
 \newpage
 
@@ -124,6 +125,7 @@ $$\{x : 3 | x \cup 5|x \}$$
 \end{center}
 Hint: Express “two people own the same umbrella” and “all days are bad”separately, then combine them.
 \Large
+$$ (\forall p \in P,  p_1 \neq p_2 \implies f(p_1) = f(p_2) ) \implies \forall d \in D, d \text{ is bad }$$
 \end{problem}
 \newpage
 
