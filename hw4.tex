@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 4}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} You  have  4  identical  balls  and  you  want  to  place  them  in  10  different containers.  In how many ways can you do that if at least one container must  have  at  least  2  balls?  Hint:  Solve  this  in  two  steps:  First,  count the  possibilities  that  do  not  satisfy  this  condition  (i.e.   every  container has at most 1 ball).  Second, count the total number of ways of placing 4 identical balls into 10 different containers (so let $x_i$ be the number of balls in container $i$).  Finally, subtract one from the other.
+\\\\
+\Large
+Placing balls in containers so as to NOT satisfy the condition is ${10 \choose 4}$\\\\
+The number of ways of placing 4 identical balls into 10 different containers is $10^4$.  
+$$ 10^4 - {10 \choose 4} = 10,000 - 210 = 9,790$$
+\end{problem}
+\newpage
+
+\begin{problem} You have 10 candies, 2 of which are identical.  You want to eat one after breakfast, one after lunch, and one after dinner (childish I know...)  Assume that this order of eating the candies is important.  In how many ways can you eat 3 candies?  Hint:  Solve this in two steps:  First, count the possibilities in which all candies are different.  Second, count the possibilities in which 2 of the candies are identical.  Finally, add them up.
+\\
+\Large
+$$ 10 * 9 * 8 + 9 * 9 * 8$$
+\end{problem}
+\newpage
+
+\begin{problem} How many integer solutions are there for $x+y+z+w= 15$ if $x \geq 3, y >-2, z \geq 1, w > -3$?
+\\
+\Large
+\\
+With:
+$$x = x_1 + 3$$
+$$y = y_1 - 1$$
+$$z = z_1 + 1$$
+$$w = w_1  -2$$
+We have:
+\begin{align*}
+x_1 + 3 + y_1 -1 + z_1 + 1 + w_1 -2 &= 15\\
+x_1 + y_1 z_1 + w_1 &= 14
+\end{align*}
+So, the number of integer solutions is:
+$${{4 + 14 -1 \choose  {4-1}}} = {17 \choose 3} = \dfrac{17 * 16 * 15}{3*2} = 680$$
+\end{problem}
+\newpage
+
+\begin{problem} True of False?  The sum $\sum_{n=0}^{k}{n \choose k}$ is always even.
+\\\\
+\Large
+True.  This is due to the symmetry of the choose function.
+\end{problem}
+\newpage
+
+\begin{problem} There are 14 men and 9 women.  They are to be seated on 23 chairs in a row such that no two women sit next to each other.  How many ways are possible?  (Hint:  we did something similar with bits).
+\\
+\Large
+We need 10 groups of men, with $n \geq 1$ in 8 of the groupings.  
+\\
+We then have:
+$${ {8 + 15 -1} \choose {8-1}} = {22 \choose 7} = 170544$$
+\end{problem}
+\newpage
+
+\begin{problem} An ant starts at position 0,  and takes a path that consists of 200 steps(it’s really hard working).  Each step moves the ant 0.5cm either to the left or to the right.  How many possible paths will bring the ant back to position 0?  Establish a bijection with a set of binary words that have a special property and then count those binary words.
+\\
+\Large
+We want all paths that have the same amount of lefts and rights.  There are ${200 \choose 100}$ such paths
+\end{problem}
+\newpage
+
+\begin{problem} Consider the expansion of $(x+y)^{561}$.  What is the coefficient multiplying the term containing $x^{17}$?
+\\
+\Large
+$${561 \choose 17}$$
+\end{problem}
+\newpage
+
+\begin{problem} Let $S=\{1,2,3,4,5,6,7,8,9,10\}$.  How many subsets of $S$ contain 1 and have an even number of elements?
+\\
+\Large
+$$\cfrac{\cfrac{2^{10}}{2}}{2} = 2^8$$
+\end{problem}
+\newpage
+
+\begin{problem} What  is  the  coefficient  of $x^3 y^2$ in  $(x+y+ 2)^{10}$?  Hint:  First  treat $(y+ 2)$ as $z$, and work with $(x+z)^{10}$ to obtain the desired power of $x$.Then expand $z$ to obtain the desired power in $y$.
+\\
+\Large
+120 is the coefficient for $x^3z^7$.  Replacing $z$ with $y+2$ and multiplying out $(y+2)^7$ we find the term with $y^2$ to be $21 y^2 * 2^5$.  Multiplying out we get 80640 as the corefficient of $x^3y^2$ 
+\end{problem}
+\newpage
+
+\begin{problem} Find the simplest answer for the following sum: 
+$${100 \choose 0} \left(\dfrac{1}{3} \right)^{100} 6^0 + {100 \choose 1} \left(\dfrac{1}{3} \right)^{101} 6^1+. . .+{100 \choose 100} \left(\dfrac{1}{3} \right)^{200} 6^{100}$$
+Hint 1:  If you are guessing Binomial Theorem, your guess is correct, but this  is  not  an  immediate  application  of  it.   Observe  that  in  the  above expression, both degrees are increasing.  So this requires a little thought before the application of the Binomial Theorem.  Hint 2:  You want the degree of 1/3 in the last term to be 0.  Hint 3:  Use factoring.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider the following sum:
+$${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$$
+Identify this sum in the Pascal triangle for several examples of $n$ and $m$ and try to discover what it is equal to.  Report your finding.
+\\
+\Large
+The sum of the numbers along the diagonal of numbers included in ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ is equal to the number below the end of the selection that is not on the same diagonal.  For example, with $n=3, m=7$, ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ includes $\{1, 4, 10, 20, 35, 56, 84, 120\}$.  The number that is below 120 - that is not on the same diagonal - is 
+\end{problem}
+\newpage
+\end{document}
