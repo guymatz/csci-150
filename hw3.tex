@@ -100,9 +100,7 @@ $$ \{ x \in \mathbb{N}| x \geq 100 \text{ and } x \leq 999 \}$$
 \begin{problem} Describe the set of all numbers divisible by 3 or 5 using set notation.
 \\
 \Large
-$$\{x \in \mathbb{Z}: 3 | x \cup 5|x \}$$
-\\\\
-Note: I wanted to write $\{x \in \mathbb{Z}| 3 | x \cup 5|x \}$ but the pipe symbols looked awkward.  What to do?
+$$\{x | x \in \mathbb{Z} \wedge (3 | x \wedge 5|x) \}$$
 \end{problem}
 \newpage
 
@@ -125,7 +123,7 @@ Note: I wanted to write $\{x \in \mathbb{Z}| 3 | x \cup 5|x \}$ but the pipe sym
 \end{center}
 Hint: Express “two people own the same umbrella” and “all days are bad”separately, then combine them.
 \Large
-$$ (\forall p \in P,  p_1 \neq p_2 \implies f(p_1) = f(p_2) ) \implies \forall d \in D, d \text{ is bad }$$
+$$ \exists p_1, p_2 \in P,  p_1 \neq p_2 \text{ and } f(p_1) = f(p_2)  \implies \forall d \in D, d \text{ is bad }$$
 \end{problem}
 \newpage
 
@@ -144,7 +142,7 @@ This is not possible.  Consider two sets $A$ and $B$, where $|A| = n$, and $|B| 
 In how many ways can you send the postcards?  Hint:  Think about the powerset of $K$ to figure out the possibilities for each friend, then use the product rule.
 \Large
 \\\\
-Each friend can receive up to 3 postcards and there are 12 of them, so we have $3^{12} = 531441$
+For each friend, there are $2^n-1$ ways we can pick from $n$ postcards without picking none.  So for 12 people and 3 postcards we have $(2^n-1)^{12} = 7^{12} = 1,384,287,201$.
 \end{problem}
 \newpage
 
