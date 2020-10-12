@@ -1,0 +1,150 @@
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 5}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} An odd number is an integer that can be written as $2k + 1$ where $k \in Z$.  Is -1 an odd number?
+\\\\
+\Large
+With $k=-1$, -1 can be written as $2k + 1$: $2(-1) + 1 = -1$.  So, yes, -1 is an odd number.
+
+\end{problem}
+\newpage
+
+\begin{problem} What is the contrapositive of “If it is raining, then I have my umbrella”.
+\\
+\Large
+If it is not raining, then I do not have my umbrella.
+\end{problem}
+\newpage
+
+\begin{problem} Is the following True or False?
+$$ \forall x, y \in  \mathbb{Z}.(x > y) \implies (x^2 > y^2)$$
+\\\\
+\Large
+False!!  Counter-example: x=-1, y=-2
+\\\\
+To make the statement true, it could read:
+$$ \forall x, y \in  \mathbb{N}.(x > y) \implies (x^2 > y^2)$$
+\end{problem}
+\newpage
+
+\begin{problem} Show that there exist two irrational numbers $x, y$ such that $xy$ is rational.
+\\\\
+\Large
+Let $x = y^{-1}$.  Then $xy = 1$, and 1 is rational
+\end{problem}
+\newpage
+
+\begin{problem} It is a  fact that if $n^2$ is a multiple of 3, then n is
+a multiple of 3. Use this fact to show by contradiction that $\sqrt{3}$  is irrational.
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} Prove by contradiction that $17n + 2$ is odd $\implies n$ is odd.
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\begin{problem} Show using a direct proof and logical operators the following set equality.
+$$A − B^C = A ∩ B$$
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\begin{problem} Given a set $S \subset \{1, 3, 5, 7, 9, .\dots \}$ Show that
+$$ |P(S)| = X i∈S i ⇒ |S| is even
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\begin{problem} 
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\begin{problem} 
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\begin{problem} 
+\\\\
+\Large
+
+\end{problem}
+\newpage
+
+
+\end{document}
