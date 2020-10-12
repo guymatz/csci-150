@@ -64,15 +64,17 @@ Hunter College}
 \\\\
 \Large
 Placing balls in containers so as to NOT satisfy the condition is ${10 \choose 4}$\\\\
-The number of ways of placing 4 identical balls into 10 different containers is $10^4$.  
-$$ 10^4 - {10 \choose 4} = 10,000 - 210 = 9,790$$
+The number of ways of placing 4 identical balls into 10 different containers is ${n+k-1 \choose n+1}$. 
+$$ {10 + 4 -1 \choose 10 - 1} - {10 \choose 4} = 715 - 210 = 505$$
 \end{problem}
 \newpage
 
 \begin{problem} You have 10 candies, 2 of which are identical.  You want to eat one after breakfast, one after lunch, and one after dinner (childish I know...)  Assume that this order of eating the candies is important.  In how many ways can you eat 3 candies?  Hint:  Solve this in two steps:  First, count the possibilities in which all candies are different.  Second, count the possibilities in which 2 of the candies are identical.  Finally, add them up.
-\\
+\\\\
 \Large
-$$ 10 * 9 * 8 + 9 * 9 * 8$$
+Step 1: $9 * 8 * 7$\\
+Step 2: $(8 * 1 * 1) * 3$\\
+Total: $$ (9 * 8 * 7) + 24 = 528$$
 \end{problem}
 \newpage
 
@@ -88,27 +90,27 @@ $$w = w_1  -2$$
 We have:
 \begin{align*}
 x_1 + 3 + y_1 -1 + z_1 + 1 + w_1 -2 &= 15\\
-x_1 + y_1 z_1 + w_1 &= 14
+x_1 + y_1 + z_1 + w_1 &= 14
 \end{align*}
 So, the number of integer solutions is:
 $${{4 + 14 -1 \choose  {4-1}}} = {17 \choose 3} = \dfrac{17 * 16 * 15}{3*2} = 680$$
 \end{problem}
 \newpage
 
-\begin{problem} True of False?  The sum $\sum_{n=0}^{k}{n \choose k}$ is always even.
+\begin{problem} True of False?  The sum $\sum_{k=0}^{n}{n \choose k}$ is always even.
 \\\\
 \Large
-True.  This is due to the symmetry of the choose function.
+False.  In the case where $n=0$ the sum is equal to 1.
 \end{problem}
 \newpage
 
 \begin{problem} There are 14 men and 9 women.  They are to be seated on 23 chairs in a row such that no two women sit next to each other.  How many ways are possible?  (Hint:  we did something similar with bits).
 \\
 \Large
-We need 10 groups of men, with $n \geq 1$ in 8 of the groupings.  
+We need 10 groups of men, with $n \geq 1$ in 8 of the groupings.  And, all of the men and women are permutable.
 \\
 We then have:
-$${ {8 + 15 -1} \choose {8-1}} = {22 \choose 7} = 170544$$
+$${ {10 + (23-8) -1} \choose {10-1}}  * 14! * 9! = {24 \choose 9} * 14! * 9! $$
 \end{problem}
 \newpage
 
@@ -122,7 +124,7 @@ We want all paths that have the same amount of lefts and rights.  There are ${20
 \begin{problem} Consider the expansion of $(x+y)^{561}$.  What is the coefficient multiplying the term containing $x^{17}$?
 \\
 \Large
-$${561 \choose 17}$$
+$${561 \choose 544}$$
 \end{problem}
 \newpage
 
@@ -136,7 +138,7 @@ $$\cfrac{\cfrac{2^{10}}{2}}{2} = 2^8$$
 \begin{problem} What  is  the  coefficient  of $x^3 y^2$ in  $(x+y+ 2)^{10}$?  Hint:  First  treat $(y+ 2)$ as $z$, and work with $(x+z)^{10}$ to obtain the desired power of $x$.Then expand $z$ to obtain the desired power in $y$.
 \\
 \Large
-120 is the coefficient for $x^3z^7$.  Replacing $z$ with $y+2$ and multiplying out $(y+2)^7$ we find the term with $y^2$ to be $21 y^2 * 2^5$.  Multiplying out we get 80640 as the corefficient of $x^3y^2$ 
+120 is the coefficient for $x^3z^7$.  Replacing $z$ with $y+2$ and multiplying out $(y+2)^7$ we find the term with $y^2$ to be $21 y^2 * 2^5$.  Multiplying out we get 80640 as the coefficient of $x^3y^2$ 
 \end{problem}
 \newpage
 
@@ -145,6 +147,15 @@ $${100 \choose 0} \left(\dfrac{1}{3} \right)^{100} 6^0 + {100 \choose 1} \left(\
 Hint 1:  If you are guessing Binomial Theorem, your guess is correct, but this  is  not  an  immediate  application  of  it.   Observe  that  in  the  above expression, both degrees are increasing.  So this requires a little thought before the application of the Binomial Theorem.  Hint 2:  You want the degree of 1/3 in the last term to be 0.  Hint 3:  Use factoring.
 \\
 \Large
+$${100 \choose 0} \left(\dfrac{1}{3} \right)^{100} 6^0 + {100 \choose 1} \left(\dfrac{1}{3} \right)^{101} 6^1+. . .+{100 \choose 100} \left(\dfrac{1}{3} \right)^{200} 6^{100}$$
+Since $(\frac{1}{3}) = 3^{-1}$, we have
+$${100 \choose 0} 3^{-100} 6^0 + {100 \choose 1} 3^{-101} 6^1+ \dots +{100 \choose 100} 3^{-200} 6^{100}$$
+Factoring out $3^{-200}$, we have
+$$3^{-200} \left( {100 \choose 0} 3^{100} 6^0 + {100 \choose 1} 3^{99} 6^1+ \dots +{100 \choose 100} 3^{0} 6^{100} \right)$$
+We now have:
+$$3^{-200}\sum_{i=0}^{100} {100 \choose i} 3^{100-i}6^i$$
+By the Binomial Theorem, this is equal to 
+$$3^{-200}(3 + 6)^{100} = 9^{-100} 9 ^{100} = 1$$
 \end{problem}
 \newpage
 
@@ -153,7 +164,7 @@ $${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$$
 Identify this sum in the Pascal triangle for several examples of $n$ and $m$ and try to discover what it is equal to.  Report your finding.
 \\
 \Large
-The sum of the numbers along the diagonal of numbers included in ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ is equal to the number below the end of the selection that is not on the same diagonal.  For example, with $n=3, m=7$, ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ includes $\{1, 4, 10, 20, 35, 56, 84, 120\}$.  The number that is below 120 - that is not on the same diagonal - is 
+The sum of the numbers along the diagonal of numbers included in ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ is equal to the number below the end of the selection that is not on the same diagonal.  For example, with $n=3, m=7$, ${n \choose n}+ {n+ 1 \choose n}+ {n+ 2 \choose n}+. . .+{n+m \choose n}$ includes $\{1, 4, 10, 20, 35, 56, 84, 120\}$.  The number that is below 120 - that is not on the same diagonal - is 230, which is the sum we look for.
 \end{problem}
 \newpage
 \end{document}
