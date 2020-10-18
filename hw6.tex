@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem}  Is the following statement True or False
+\begin{center}
+\textit{If pigs can fly, then I will learn math.}
+\end{center}
+\Large
+
+\end{problem}
+\newpage
+
+\begin{problem} You are given two propositions $P$ and $Q$.  Show that $(P \implies Q) \vee (Q \implies P)$ is True.  This might be surprising since $P$ and $Q$ are arbitrary and possibly not related in anyway.  You can use any proof method, including a truth table.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Is  the  set  of  all  watches  that  will  ever  be  made  on  Earth  countable  or uncountable
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Show  by  contradiction  that $\mathbb{R} - \mathbb{Q}$ is  uncountable.  Hint: Consider the union of this set with some other countable set.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider all the finite sets of $\mathbb{N}$.  Is the set of all these sets countable or uncountable?
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Some birds can chirp and some birds can sing.  We have 100 birds in total, and  we  know  that  46  of  them  can  chirp.   If  only  17  birds  are  chirping singing birds, how many birds can sing?
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} How many numbers in $\{1,2, \dots ,1000\}$ are divisible by 6 or 10?  Hint:  If a number is divisible by 6 and 10, then it is not necessarily divisible by 60.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Show that in a group of 44 people, 4 of them are born in the same month.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider a function $f: \mathbb{N} \to S$.  We know thatf is onto.  Is $S$ countable or not?  Explain.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} How many numbers in $\{1,2, \dots ,546\}$ are not divisible by 2 and not divisible by 3 and not divisible by 7.
+\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} The numbers 1,2,3, $\dots$ ,100 are written down in some random order.  Prove that you can find in this order 7 consecutive numbers that add up to at least 337.
+\\
+\Large
+\end{problem}
+\newpage
+\end{document}
