@@ -36,6 +36,10 @@
     %package gives us the ability to set the line spacing.
 \usepackage{moreenum}   % for greek letters in enum
 \usepackage{xcolor}
+% from https://tex.stackexchange.com/questions/42271/floor-and-ceiling-functions
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
 \newtheorem{theorem}{Theorem}
 \theoremstyle{definition} 
@@ -65,67 +69,117 @@ Hunter College}
 \textit{If pigs can fly, then I will learn math.}
 \end{center}
 \Large
-
+True.  "Pigs can fly" is false, and our truth table tells us that any implication with a false proposition is True.
 \end{problem}
 \newpage
 
 \begin{problem} You are given two propositions $P$ and $Q$.  Show that $(P \implies Q) \vee (Q \implies P)$ is True.  This might be surprising since $P$ and $Q$ are arbitrary and possibly not related in anyway.  You can use any proof method, including a truth table.
 \\
 \Large
+
+\begin{displaymath}
+\begin{array}{|c c|c|c|c|}
+P & Q & P \implies Q & Q \implies P & (P \implies Q) \lor (Q \implies P) \\
+\hline  
+T & T & T & T & T\\
+T & F & F & T & T\\
+F & T & T & F & T\\
+F & F & T & T & T\\
+\end{array}
+\end{displaymath}
+
 \end{problem}
 \newpage
 
 \begin{problem} Is  the  set  of  all  watches  that  will  ever  be  made  on  Earth  countable  or uncountable
-\\
+\\\\
 \Large
+Countable.  Every element of this set can be associated with a unique natural number. 
 \end{problem}
 \newpage
 
 \begin{problem} Show  by  contradiction  that $\mathbb{R} - \mathbb{Q}$ is  uncountable.  Hint: Consider the union of this set with some other countable set.
-\\
+\\\\
 \Large
+Towards a contradiction, assume $\mathbb{R} - \mathbb{Q}$ is countable.  Then, since $\mathbb{Q}$ is countable, $\mathbb{Q} \cup (\mathbb{R} - \mathbb{Q})$ is countable.  But $\mathbb{Q} \cup (\mathbb{R} - \mathbb{Q}) = \mathbb{R}$, and $\mathbb{R}$ is uncountable, so
+we have a contradiction and $\mathbb{R} - \mathbb{Q}$ is uncountable.
 \end{problem}
-\newpage
 
+\newpage
 \begin{problem} Consider all the finite sets of $\mathbb{N}$.  Is the set of all these sets countable or uncountable?
-\\
+\\\\
 \Large
+Countable.  A set is countable if either it is finite or it has the same size as $\mathbb{N}$.
 \end{problem}
 \newpage
 
 \begin{problem} Some birds can chirp and some birds can sing.  We have 100 birds in total, and  we  know  that  46  of  them  can  chirp.   If  only  17  birds  are  chirping singing birds, how many birds can sing?
-\\
+\\\\
 \Large
+Let $C$ be the group of chirping birds, and $S$ the group of singing birds.  The, by the inclusion-exclusion principle, we have:\\
+\begin{align*}
+100 =& |C| + |S| - |C \cap S|\\
+100 =& 46 + |S| - 17\\
+  |S| =& 71
+\end{align*}
 \end{problem}
 \newpage
 
 \begin{problem} How many numbers in $\{1,2, \dots ,1000\}$ are divisible by 6 or 10?  Hint:  If a number is divisible by 6 and 10, then it is not necessarily divisible by 60.
-\\
+\\\\
 \Large
+By inclusion-exclusion principle we have that:
+$$|S_6 \cup S_{10}| = |S_6| + |S_{10}| - |S_6 \cap S_{10}|$$
+Where:\\
+$|S_6| = \frac{1000}{6} = 166$, $|S_{10}| = \frac{1000}{10} = 100$, $|S_6 \cap S_{10}| = \frac{1000}{60} = 16$
+\\\\
+\begin{align*}
+|S_6 \cup S_{10}| =& 166 + 100 - 16\\
+=& 250
+\end{align*}
 \end{problem}
 \newpage
 
 \begin{problem} Show that in a group of 44 people, 4 of them are born in the same month.
-\\
+\\\\
 \Large
+By the pigeonhole principle, if we have $n=12$ and $m=44$.  Then $\ceil*{\frac{44}{12}} = 4$.
 \end{problem}
 \newpage
 
-\begin{problem} Consider a function $f: \mathbb{N} \to S$.  We know thatf is onto.  Is $S$ countable or not?  Explain.
-\\
+\begin{problem} Consider a function $f: \mathbb{N} \to S$.  We know that $f$ is onto.  Is $S$ countable or not?  Explain.
+\\\\
 \Large
+If $f$ is onto, then $\forall y \in S \exists x \in \mathbb{N}, s.t. f(x) = y$.  Since $\mathbb{N}$ is countable, $S$ then must surely be countable since it has less than, or as many, elements as $\mathbb{N}$.
 \end{problem}
 \newpage
 
 \begin{problem} How many numbers in $\{1,2, \dots ,546\}$ are not divisible by 2 and not divisible by 3 and not divisible by 7.
-\\
+\\\\
 \Large
+By the Inclusion-Exclusion principle we have:
+\begin{align*}
+|S_2| \cup |S_3| \cup |S_7| =& |S_2| + |S_3| + |S_7| \\
+                             & - |S_2 \cap S_3| - |S_2 \cap S_7| - |S_3 \cap S_7| \\
+                             & + |S2 \cap S_3 \cap S_7|\\
+\end{align*}
+Where 
+$$|S_2| = \frac{546}{2} = 273$$
+$$|S_3| = \frac{546}{3} = 182$$
+$$|S_7| = \frac{546}{7} = 78$$
+$$|S_2 \cap S_3| = \frac{546}{6} = 91$$
+$$|S_2 \cap S_7| = \frac{546}{14} = 39$$
+$$|S_3 \cap S_7| = \frac{546}{21} = 26$$
+$$|S_2 \cap S_3 \cap S_7| = \frac{546}{42} = 13$$
+Then
+$$|S_2| \cup |S_3| \cup |S_7| = 273 + 182 + 78 - 91 - 39 - 26 + 13 = 390$$
 \end{problem}
 \newpage
 
 \begin{problem} The numbers 1,2,3, $\dots$ ,100 are written down in some random order.  Prove that you can find in this order 7 consecutive numbers that add up to at least 337.
-\\
+\\\\
 \Large
+By the Pigeonhole Principle we have $n = 15, m=5050$, then $\ceil*{\frac{5050}{15}}=337$
 \end{problem}
 \newpage
 \end{document}
