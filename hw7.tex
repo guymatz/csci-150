@@ -1,0 +1,183 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} Prove that in a group of 25 people, some three of them must have birthdays in the same month.
+\\\\
+\Large
+By the pigeon-hole principle we have $n=12, m = 25$.  Then $\ceil{\frac{25}{12}}= 3$.
+\end{problem}
+\newpage
+
+\begin{problem} (This  is  pigeonhole  in  reverse)  A  person  needs  to  collect  100  identical coupons.   There  are  6  types  of  coupons  available.   How  many  coupons must the person collect in order to guarantee 100 identical coupons?
+\\\\
+\Large
+
+$$\ceil{\frac{m}{6}} = 100$$
+
+$$99 < \frac{m}{6} \leq 100$$
+$$594 < m \leq 600$$
+$$m = 595$$
+
+\end{problem}
+\newpage
+
+\begin{problem}  (This is not pigeonhole) My drawer has $n$ pairs of socks, fresh from the laundry but all separated.  Each sock is labeled “Left” or “Right”.  If I grab socks blindly, how many trials to I need to guarantee a good pair?
+\\\\
+\Large
+If $n$ is even you cannot guarantee a "good pair", since you could grab $\frac{n}{2}$ left socks, then $\frac{n}{2}$ right socks resulting in no pairs.
+\\\\
+If $n$ is odd, picking $\ceil{\frac{n}{2}}$ will guarantee a good pair.
+\end{problem}
+\newpage
+
+\begin{problem} We  are  given  a  $1 \times l$ rectangle,  where $l$ is  an  integer.   We  place $l+ 1$ points on the perimeter of the rectangle.  Prove that some 2 points must be within a distance of $\sqrt{2}$.  [This second part is not graded, but convince yourself that $l$ points are not sufficient to make the above claim]
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider a binary word of length 70.  Prove that there are at least two occurrences of a sequence of 6 bits
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} There is a contest with 40 Pokemons.  There are 18 Pokemons who like to fight in the sky, and 23 show like to fight on ground.  Several of them like to fight in the water.  The number of those who like to fight in the sky and on ground in 9.  There are 7 Pokemons who like to fight in the sky and in water, and 12 who like to fight on ground and in water.  There are4 Pokemons who like to fight in the sky, on ground, and in water.  How many Pokemons like to fight in water?
+\\\\
+\Large
+Let:\\
+$S$ = Sky Fighters\\
+$G$ = Ground Fighters\\
+$W$ = Water Fighters\\
+$SG$ = Sky/Ground Fighters\\
+$SW$ = Sky/Water Fighters\\
+$SG$ = Ground/Water Fighters\\
+$SGW$ = Sky/Ground/Water Fighters\\\\
+Then by the Inclusion-Exclusion principle we have:
+\begin{align*}
+40 =& |S| + |G| + |W| - |SG| - |SW| - |GW| + |SGW|\\
+40 =& 18 + 23 + |W| - 9 - 7 - 12 + 4\\
+|W| =& 23\\
+\end{align*}
+\end{problem}
+\newpage
+
+\begin{problem}  In a class of 20, 12 are boys and 13 wear glasses.  There are twice as many boys with glasses as girls with no glasses.  How many girls wear glasses?
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider making a 3-digit number such that the first digit cannot be 1,and the second digit cannot be 2, and the third digit cannot be 3.  Using the product rule it’s easy to show that we have 8×9×9 = 648 possible numbers.   Show  that  you  can  get  the  same  answer  by  transforming  thep roblem into an OR logic and using Inclusion-Exclusion.Note:  You answer must have the following format:
+$$\square - (\square + \square + \square - \square - \square - \square + \square) = \square$$
+where each box is an integer.  We will grade the above format.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider the following grid:
+\begin{displaymath}
+\begin{array}{c c c c}
+\bigcirc & \bigcirc & \bigcirc & \bigcirc \\
+\bigcirc & \bigcirc & \bigcirc & \bigcirc \\
+\bigcirc & \bigcirc & \bigcirc & \bigcirc \\
+\bigcirc & \bigcirc & \bigcirc & \bigcirc \\
+\end{array}
+\end{displaymath}
+Experiment with this activity:  Color five of the points black.  For each pair of black points, draw the (infinite) line that joins them.  Observe that some threelines intersect in a right angle triangle.If you attempt to prove this property (that some three lines intersect in a right angle triangle), what technique will you use and why?  Prove this property.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Redo exercise 8 with one additional constraint:  all digits must be different(use the same Inclusion-Exclusion technique).  Your answer must have the same format described in exercise 8, and this is what will be graded.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Prove by induction the following property for all integers $n \geq 2$:
+$$\sum_{i=2}^{n}0.5^i = 0.5-0.5^n$$
+Hint:  Applying the proof by induction steps should be easy, the tricky part is how  to  manipulate  the  expression  for $\sum_{i=2}^{n+1}0.5^i$ in  the  inductive  step  to  get what we want.
+\\\\
+\Large
+Base Case, where $n_0=2$:
+$$\sum_{i=2}^{2}0.5^i = 0.5 - 0.5^2 = 0.25 \, \checkmark$$
+\\
+Inductive Hypothesis:  For some $n \geq n_0$
+$$\sum_{i=2}^{n}0.5^i = 0.5-0.5^n$$
+Inductive Step:
+\begin{align*}
+\sum_{i=2}^{n+1}0.5^i =& \sum_{i=2}^{n}0.5^i + 0.5^{n+1} \\
+                      =&   0.5-0.5^n + 0.5^{n+1} \\
+                      =& 0.5 + 0.5^n(-1 + 0.5)\\
+                      =& 0.5 + 0.5^n(-.5)\\
+                      =&   0.5 - 0.5^{n+1} \, \checkmark
+\end{align*}
+
+\end{problem}
+\newpage
+\end{document}
