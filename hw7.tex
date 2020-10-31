@@ -83,28 +83,30 @@ $$m = 595$$
 \end{problem}
 \newpage
 
-\begin{problem}  (This is not pigeonhole) My drawer has $n$ pairs of socks, fresh from the laundry but all separated.  Each sock is labeled “Left” or “Right”.  If I grab socks blindly, how many trials to I need to guarantee a good pair?
+\begin{problem}  (This is not pigeonhole) My drawer has $n$ pairs of socks, fresh from the laundry but all separated.  Each sock is labeled “Left” or “Right”.  If I grab socks blindly, how many trials do I need to guarantee a good pair?
 \\\\
 \Large
-If $n$ is even you cannot guarantee a "good pair", since you could grab $\frac{n}{2}$ left socks, then $\frac{n}{2}$ right socks resulting in no pairs.
+If $n$ is even you cannot guarantee a "good pair", since you could grab $n$ left socks, then $n$ right socks resulting in no pairs.
 \\\\
-If $n$ is odd, picking $\ceil{\frac{n}{2}}$ will guarantee a good pair.
+If $n$ is odd, picking $n+1$ socks will guarantee a pair.
 \end{problem}
 \newpage
 
 \begin{problem} We  are  given  a  $1 \times l$ rectangle,  where $l$ is  an  integer.   We  place $l+ 1$ points on the perimeter of the rectangle.  Prove that some 2 points must be within a distance of $\sqrt{2}$.  [This second part is not graded, but convince yourself that $l$ points are not sufficient to make the above claim]
 \\\\
 \Large
+Let us think of the $l \times 1$ rectangle as being made up of $l$ $1 \times 1$ squares. Then by the pigeon-hole principle we know that we can place $l$ dots, with each one on the perimeter of their own $1 \times 1$ square.  Again by the pigeon-hole principle, once we place the $l+1$ dot it will have to go into a $1 \times 1$ box that already has a dot on it, and the farthest away those two dots can be is the length of the diagonal of a $1\times 1$ box, which is $\sqrt{2}$.
 \end{problem}
 \newpage
 
 \begin{problem} Consider a binary word of length 70.  Prove that there are at least two occurrences of a sequence of 6 bits
 \\\\
 \Large
+There are $2^n$ permutations of a 6-digit binary string, which is 64, so there are 64 different ways to write a sequence of 6 bits.  The pigeon-hole principle tells us that once we have 64 digits in a binary string we either have a duplicate 6-digit binary string in those first 64 digits, or the 6-digits have all been unique and the next 6 will be a repeat of one of the 6-digit number in the first 64.
 \end{problem}
 \newpage
 
-\begin{problem} There is a contest with 40 Pokemons.  There are 18 Pokemons who like to fight in the sky, and 23 show like to fight on ground.  Several of them like to fight in the water.  The number of those who like to fight in the sky and on ground in 9.  There are 7 Pokemons who like to fight in the sky and in water, and 12 who like to fight on ground and in water.  There are4 Pokemons who like to fight in the sky, on ground, and in water.  How many Pokemons like to fight in water?
+\begin{problem} There is a contest with 40 Pokemons.  There are 18 Pokemons who like to fight in the sky, and 23 show like to fight on ground.  Several of them like to fight in the water.  The number of those who like to fight in the sky and on ground in 9.  There are 7 Pokemons who like to fight in the sky and in water, and 12 who like to fight on ground and in water.  There are 4 Pokemons who like to fight in the sky, on ground, and in water.  How many Pokemons like to fight in water?
 \\\\
 \Large
 Let:\\
@@ -113,7 +115,7 @@ $G$ = Ground Fighters\\
 $W$ = Water Fighters\\
 $SG$ = Sky/Ground Fighters\\
 $SW$ = Sky/Water Fighters\\
-$SG$ = Ground/Water Fighters\\
+$GW$ = Ground/Water Fighters\\
 $SGW$ = Sky/Ground/Water Fighters\\\\
 Then by the Inclusion-Exclusion principle we have:
 \begin{align*}
@@ -127,14 +129,29 @@ Then by the Inclusion-Exclusion principle we have:
 \begin{problem}  In a class of 20, 12 are boys and 13 wear glasses.  There are twice as many boys with glasses as girls with no glasses.  How many girls wear glasses?
 \\\\
 \Large
+There are 8 girls, and the number of girls who do not wear glasses is $x$, so the number of girls who wear glasses is $8-x$.  There are twice as many boys with glasses as girls with no glasses - $2x$ - and there are 13 total who wear glasses.  This gives us:
+$$13 = (8-x) + 2x$$
+Solving for $x$ we find that 5 girls do not wear glasses, so 3 girls do wear glasses.
 \end{problem}
 \newpage
 
-\begin{problem} Consider making a 3-digit number such that the first digit cannot be 1,and the second digit cannot be 2, and the third digit cannot be 3.  Using the product rule it’s easy to show that we have 8×9×9 = 648 possible numbers.   Show  that  you  can  get  the  same  answer  by  transforming  thep roblem into an OR logic and using Inclusion-Exclusion.Note:  You answer must have the following format:
+\begin{problem} Consider making a 3-digit number such that the first digit cannot be 1,and the second digit cannot be 2, and the third digit cannot be 3.  Using the product rule it’s easy to show that we have 8×9×9 = 648 possible numbers.   Show  that  you  can  get  the  same  answer  by  transforming  the problem into an OR logic and using Inclusion-Exclusion.Note:  You answer must have the following format:
 $$\square - (\square + \square + \square - \square - \square - \square + \square) = \square$$
 where each box is an integer.  We will grade the above format.
 \\\\
 \Large
+$S$ = Total 3-digit numbers\\
+$S_1$ = 3-digit numbers with 1 in the hundreds column\\
+$S_2$ = 3-digit numbers with 2 in the 10s column\\
+$S_3$ = 3-digit numbers with 3 in the 1s column\\
+$S_1 \cup S_2$ = 3-digit numbers with 1 in the hundreds column and 2 in the 10s column\\
+$S_1 \cup S_3$ = 3-digit numbers with 1 in the hundreds column and 3 in the 1s column\\
+$S_2 \cup S_3$ = 3-digit numbers with 2 in the 10s column and 3 in the 1s column\\
+$S_1 \cup S_2 \cup S_3$ = 3-digit numbers with 1 in the hundreds column, 2 in the 10s column and 3 in the 1s column\\
+\\
+Then by the Inclusion-Exclusion principle we have:
+$$|S| - (|S_1| + |S_2| + |S_3| - |S_1 \cup S_2| - |S_1 \cup S_3|- |S_3 \cup S_3| + |S_1 \cup S_2 \cup S_3|)$$
+$$900 - (100 + 90 + 90 - 10 - 10 - 9 + 1) = 648$$
 \end{problem}
 \newpage
 
@@ -147,15 +164,24 @@ where each box is an integer.  We will grade the above format.
 \bigcirc & \bigcirc & \bigcirc & \bigcirc \\
 \end{array}
 \end{displaymath}
-Experiment with this activity:  Color five of the points black.  For each pair of black points, draw the (infinite) line that joins them.  Observe that some threelines intersect in a right angle triangle.If you attempt to prove this property (that some three lines intersect in a right angle triangle), what technique will you use and why?  Prove this property.
+Experiment with this activity:  Color five of the points black.  For each pair of black points, draw the (infinite) line that joins them.  Observe that some three lines intersect in a right angle triangle.  If you attempt to prove this property (that some three lines intersect in a right angle triangle), what technique will you use and why?  Prove this property.
 \\\\
 \Large
+Pigeon-Hole Principle!  With 4 rows and columns, when we color 5 dots we have necessarily colored in two dots in one column and two dots in one row.  That gives us a horizontal and vertical line which make up the two sides of a right triangle. 
 \end{problem}
 \newpage
 
-\begin{problem} Redo exercise 8 with one additional constraint:  all digits must be different(use the same Inclusion-Exclusion technique).  Your answer must have the same format described in exercise 8, and this is what will be graded.
+\begin{problem} Redo exercise 8 with one additional constraint:  all digits must be different (use the same Inclusion-Exclusion technique).  Your answer must have the same format described in exercise 8, and this is what will be graded.
 \\\\
 \Large
+$S$ = 3-digit numbers with conditions set in Problem 8\\
+$S_D$ = 3-digit numbers with the same digits in hundreds \& tens place (but not 1xx or x2x)\\
+$S_E$ = 3-digit numbers with the same digits in hundreds \& ones place (but not 1xx or xx3)\\
+$S_F$ = 3-digit numbers with the same digits in tens \& ones place (but not x2x or xx3)\\
+\\
+Then by the Inclusion-Exclusion principle we have:
+$$|S| - (|S_D| + |S_E| + |S_F| - |S_D \cup S_E| - |S_D \cup S_F|- |S_E \cup S_F| + |S_D \cup S_E \cup S_F|)$$
+$$648 - (70 + 70 + 63 - 7 - 7 - 6 + 1) = 464$$
 \end{problem}
 \newpage
 
