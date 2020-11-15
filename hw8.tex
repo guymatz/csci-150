@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 8}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} Consider the Fibonacci sequence given by
+$$0,1,1,2,3,5,8,13,21, \dots $$
+where $F_0 = 0$ and $F_1= 1$ and
+$$F_n = F_{n-1} + F_{n-2}$$
+We want to show the property that for all $n \geq 0$:\\
+$$\sum_{i=0}^{n} F_i = F_0 + F_1 + \dots + F_n = F_{n+2}-1$$
+Prove  the  property  by  induction.   Your  proof  must  consists  of  three  parts:  1)  base case(s),  2)  a  clear  statement  of  the  inductive hypothesis,  and  3)  the induction step.  In particular, your inductive step must start with:
+$$ \sum_{i=0}^{n+1} F_i = \sum_{i=0}^{n} F_i + F_{n+1} = \dots = \dots = F_{n+3} - 1 = F_{(n+1)+2}-1 $$
+Note: Explain why the single base case of $n_0 = 0$ is enough for this proof, even though the recurrence itself requires two base cases to define.\\
+Note:  Does the property hold for $n=-1$?  What do you think?
+\\\\
+\Large
+Base Case: $n = 0$,
+$$\sum_{i=0}^{0} F_i = F_0 = F_{0+2} -1 = 0$$
+Inductive Hypothesis:  For some $n \geq 0$, assume:
+$$\sum_{i=0}^{m} F_i = F_{m+2}-1$$
+for all $m$, where $0 \leq m \leq n$.
+Inductive Step:
+\begin{align*}
+\sum_{i=0}^{n+1} F_i &= F_{i} + F_{n+1}\\
+                      &= F_{n+2} - 1 + F_{n+1}\\
+                      &= F_{n+3} - 1 \\
+                      &= F_{(n+1) + 2} - 1
+\end{align*}
+This recurrence is only defined for $n \geq 0$, so does not hold for $n = -1$.  As for the use of a single base case, this is appropriate since the proof does not make use of the Fibonacci recurrence.
+\end{problem}
+\newpage
+
+\begin{problem} An  alien  spices  communicate  using  a  three-letter  alphabet$\{x,y,z\}$.   In  their language,  words  must  obey  one  single  rule:$zz$ cannot  be  part  of  any  word;otherwise, the speaker will go to sleep and never finish the sentence.  One might wonder how many words of length $n$ exist in this language...
+\\\\
+Describe the number of words of length $n$ by a recurrence.  Let $a_n$ 
+be the number of words of length $n$, and express $a_n$ in terms of $a_{n-1}$ and $a_{n-2}$.
+\\\\
+Hint:  Do as we did with the tiling problem, i.e.  consider different cases based on how you start a word, then for each case figure out in how many ways you can finish it.
+\\\\
+\Large
+$a_n$ is the number of words with length $n$.
+Case 1: Word starts with $x$.  Rest of word is of length $n-1$\\
+Case 2: Word starts with $y$.  Rest of word is of length $n-1$\\
+Case 3: Word starts with $z$.  Then it is followed by a $x$ or $y$, and the rest of word is of length $n-2$\\
+$$a_n = a_{n-1} + a_{n-1} + a_{n-2} + a_{n-2} = 2_{a_n - 1} + 2_{a_n - 2}$$
+We can see that $a_0 = 1$ (1 way to make a word of no letters), and $a_1 = 3$ (3 ways to make a word of 1 letter).
+\end{problem}
+\newpage
+
+\begin{problem} Consider a version of the Tower of Hanoi where each disk is duplicated, so we have $2n$ disks with 2 disks of each size.  The rules of the game are the same.  Let $a_n$ be the number of moves needed to solve this $2n$ disk problem.
+\\\\
+\begin{enumerate}
+\item Find a recurrence for $a_n$.
+\item Guess a solution for $a_n$ in terms of $n$ (by exploring), and prove it by induction.
+\end{enumerate}
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} 
+Consider the recurrence
+$$a_n = 2a_{n-1}+ 2a_{n-2}$$
+where $a_0= 1$ and $a_1= 3$.
+\\\\
+Prove by induction that
+$$a_n = \left(\frac{1}{2}+\frac{\sqrt{3}}{3} \right) \rho^n + \left( \frac{1}{2}-\frac{\sqrt{3}}{3} \right) \left(2- \rho \right)^n$$
+where $\rho = 1 + \sqrt{3}$.
+\\\\
+Hint:  Knowing that $\frac{2}{\rho}+\frac{2}{\rho^2}= \frac{2}{2 - \rho}+\frac{2}{(2 - \rho)^2} = 1$ will simplify your inductive step [this is  strikingly similar to the Fibonacci problem in Note 5].
+\\
+Note:  Explain why the case base must cover $n= 0$ and $n= 1$.
+\Large
+\\\\
+Base Cases,\\
+$n = 0$:
+$$a_0 = \left( \frac{1}{2} + \frac{\sqrt{3}}{3} \right) + \left( \frac{1}{2} = \frac{\sqrt{3}}{3} \right) = 1$$
+$n = 1$:
+$$a_1 = \left( \frac{1}{2} + \frac{\sqrt{3}}{3} \right) (1 + \sqrt{3}) + \left( \frac{1}{2} = \frac{\sqrt{3}}{3} \right) (1 - \sqrt{3}) = 3$$
+Inductive Hypothesis:\\
+For a fixed $n \geq 0$, assume that the recurrence $a_m$ holds for every $m$, where $0 \leq m \leq n$.\\\\
+Inductive Step
+\begin{align*}
+a_{n+1} &= 2a_n + 2a_{n-1} = 2 \left[ \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\right]
+\end{align*}
+\end{problem}
+\newpage
+
+\begin{problem} We have seen in lecture the expression
+$$\frac{2n^2 - 1 +(-1)^n}{8}$$
+We want to show the following property is true for all $n \geq 0$:
+$$P(n): \frac{2n^2 - 1 + (-1)^n}{8} = \floor{\frac{n}{2}} \ceil{\frac{n}{2}}$$
+In order to do prove the claim in the inductive step for $P(n+ 1)$, it is convenient here to use the truth of the claim for $P(n-1)$ (traditionally we would use $P(n))$.  For your inductive step, therefore, start with
+$$\frac{2(n+1)^2 - 1 + (-1)^{n+1}}{8} = \frac{2(n-1+2)^2 - 1 + (-1)^{n-1}}{8} = \dots$$
+\\\\
+Then expand while keeping $(n-1)$ intact in order to apply $P(n-1)$ to obtain:
+$$\floor{\frac{n-1}{2}} \ceil{\frac{n-1}{2}}+n$$
+and to retrieve $(n+ 1)$ we write:
+\Large
+\end{problem}
+
+
+\end{document}
