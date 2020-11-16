@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%free online editor available at%%%%%%%%%%%%%%%%%%%%%%
+%%%%%https://www.writelatex.com/%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,leqno ]{article}
+    %The document class defines the master templates, the structure of the document, 
+    %and lays out the types of 
+    %objects that can be manipulated for this type of document. 
+    %the brackets contain basic options that will be applied globally (throughout
+    %the document). Here, we specify a 10pt font, and when we number an equation, the 
+    %number will be on the left.
+    %The document class is a file ***.cls. You will probably never have to edit or create
+    % a .cls file. There are many available on the internet for your use.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{amsthm}
+\usepackage{hyperref}
+%\usepackage{homework}
+    %packages control the ``style'' or look of the document. These come in the form of 
+    %files ***.sty. The package ``homework'' above was created by me. The other packages
+    %are very common for this type of document. You can google to learn more about what
+    %they can do, and what options they give you. For example
+\usepackage{textcomp}
+\usepackage[margin=1.5in]{geometry}
+    %the geometry package lets you customize the margins of your document.
+    % and the 
+
+\usepackage{forest}
+  % For drawing the tree illustrating the sample space  
+\usepackage{setspace}
+    %package gives us the ability to set the line spacing.
+\usepackage{moreenum}   % for greek letters in enum
+\usepackage{xcolor}
+
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition} 
+\newtheorem{problem}[theorem]{Problem}
+    %these set up environments for listing things. The numbering is automatic.
+\usepackage{float}
+\restylefloat{table}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\newenvironment{solution}[1][Solution]{\begin{doublespace}\textbf{#1.}\quad }{\ \rule{0.5em}{0.5em}\end{doublespace}}
+    %this is the environment for writing solutions. Doble spaced, with an end of proof
+    %box at the end
+    
+\title{Discrete Math\\
+CSCI 150, Fall 2020\\
+Homework 1}
+\author{Guy Matz \\
+Hunter College}
+    %above is the information that goes in the title. Notice the { and }. 
+    %the double slashes \\ mean start a new line.
+
+
+\begin{document} %this means end the preamble (stuff controling the styles above and
+%start the content of the document. We can make adjustments as we go. For example,
+%\maketitle
+\begin{problem} Factor 10! into primes.
+\\\\
+\Large
+\begin{align*}
+10! &= 10 \cdot 9 \cdot 8 \cdot 7  \cdot  6  \cdot  5  \cdot 4 \cdot 3 \cdot 2 \cdot 1\\
+    &= 5 \cdot 2 \cdot 3 \cdot 3 \cdot 2 \cdot 2 \cdot 2 \cdot 7 \cdot 3 \cdot 2 \cdot 5 \cdot 2 \cdot 2 \cdot 3 \cdot 2\\
+    &= 7 \cdot 5^2 \cdot 3^4 \cdot 2^8
+\end{align*}
+\end{problem}
+\newpage
+
+\begin{problem} Find the greatest common divisor of 100 and 254 using prime factorization.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Find  the  greatest  common  divisor  of  100  and  254  using  the  Euclidean algorithm.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Express the $gcd(100,254)$ as a linear combination of 100 and 254.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Show that if $a|bc$ and $gcd(a, b) = 1$ then $a|c$.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Let $F_n$ be the $n^{th}$ Fibonacci number.  What is the $gcd(F_{2021}, F{2020})$?
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Consider the number 60, it is factored into primes as $22 \dot 3 \dot 5$.  Observe now that $(2^0+ 2^1+ 2^2)(3^0+ 3^1)(5^0+ 5^1)$ gives the sum of all the divisors of 60 due to the distributive law.  Find the sum of all the divisors of 1000.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} Find the product of all the divisors of 1000.  This requires a little bit of thinking along the lines of the previous question.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+Consider the following sequences starting at $a_0, a_1, \dots$:
+$$5, -10, 20, -40, \dots$$
+$$ 1, 7, 49, 343$$
+\begin{problem} For each of the sequences above, find a recurrence of the form $a_n = Aa_{n-1}$ for $n \geq 1$, and solve for $a_n$ as a function of $n$.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} For each of the sequences above, find a recurrence of the form $a_n=Aa_{n-1} + Ba_{n-2}$ for $n \geq 2$, by considering the recurrence from part (a) for $a_n$ and $a{n-1}$ ; the solution is not unique,  depending on how you combine recurrences,  so to make grading feasible, find the solution that corresponds to adding up the recurrences.
+\\\\
+\Large
+\end{problem}
+\newpage
+
+\begin{problem} There are infinitely many recurrences of the form $a_n=Aa_{n-1}+Ba_{n-2}$ that work since we can write $a_n=cp^n+ 0 \dot q^n$ for $q \neq p$.  Find a recurrence of the form $a_n=Aa_{n-1}+Ba_{n-2}$ for $n\ geq 2$ that works for both sequences at the same time
+\\\\
+\Large
+\end{problem}
+\newpage
+\end{document}
