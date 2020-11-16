@@ -79,7 +79,7 @@ Base Case: $n = 0$,
 $$\sum_{i=0}^{0} F_i = F_0 = F_{0+2} -1 = 0$$
 Inductive Hypothesis:  For some $n \geq 0$, assume:
 $$\sum_{i=0}^{m} F_i = F_{m+2}-1$$
-for all $m$, where $0 \leq m \leq n$.
+for all $m$, where $0 \leq m \leq n$.\\\\
 Inductive Step:
 \begin{align*}
 \sum_{i=0}^{n+1} F_i &= F_{i} + F_{n+1}\\
@@ -91,7 +91,7 @@ This recurrence is only defined for $n \geq 0$, so does not hold for $n = -1$.  
 \end{problem}
 \newpage
 
-\begin{problem} An  alien  spices  communicate  using  a  three-letter  alphabet$\{x,y,z\}$.   In  their language,  words  must  obey  one  single  rule:$zz$ cannot  be  part  of  any  word;otherwise, the speaker will go to sleep and never finish the sentence.  One might wonder how many words of length $n$ exist in this language...
+\begin{problem} An  alien  species  communicate  using  a  three-letter  alphabet$\{x,y,z\}$.   In  their language,  words  must  obey  one  single  rule:$zz$ cannot  be  part  of  any  word;otherwise, the speaker will go to sleep and never finish the sentence.  One might wonder how many words of length $n$ exist in this language...
 \\\\
 Describe the number of words of length $n$ by a recurrence.  Let $a_n$ 
 be the number of words of length $n$, and express $a_n$ in terms of $a_{n-1}$ and $a_{n-2}$.
@@ -99,7 +99,7 @@ be the number of words of length $n$, and express $a_n$ in terms of $a_{n-1}$ an
 Hint:  Do as we did with the tiling problem, i.e.  consider different cases based on how you start a word, then for each case figure out in how many ways you can finish it.
 \\\\
 \Large
-$a_n$ is the number of words with length $n$.
+$a_n$ is the number of words with length $n$.\\
 Case 1: Word starts with $x$.  Rest of word is of length $n-1$\\
 Case 2: Word starts with $y$.  Rest of word is of length $n-1$\\
 Case 3: Word starts with $z$.  Then it is followed by a $x$ or $y$, and the rest of word is of length $n-2$\\
@@ -115,6 +115,7 @@ We can see that $a_0 = 1$ (1 way to make a word of no letters), and $a_1 = 3$ (3
 \item Guess a solution for $a_n$ in terms of $n$ (by exploring), and prove it by induction.
 \end{enumerate}
 \Large
+SKIP
 \end{problem}
 \newpage
 
@@ -141,7 +142,19 @@ Inductive Hypothesis:\\
 For a fixed $n \geq 0$, assume that the recurrence $a_m$ holds for every $m$, where $0 \leq m \leq n$.\\\\
 Inductive Step
 \begin{align*}
-a_{n+1} &= 2a_n + 2a_{n-1} = 2 \left[ \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\right]
+a_{n+1} &= 2a_n + 2a_{n-1} \\
+                            &= 2 \left[ 
+                                    \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\rho^n
+                                    + \left( \frac{1}{2} - \frac{\sqrt{3}}{3}\right)(2-\rho^n)
+                                \right]\\
+                            & \;\;\;\; + 2 \left[ 
+                                \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\rho^{n-1}
+                                + \left( \frac{1}{2} - \frac{\sqrt{3}}{3}\right)(2-\rho)^{n-1}
+                                \right]\\
+                        &= \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\rho^{n+1} \left[  \frac{2}{\rho^2} + \frac{2}{\rho}\right] 
+                            + \left( \frac{1}{2} - \frac{\sqrt{3}}{3}\right) (2-\rho)^{n+1} \left[  \frac{2}{(2-\rho)^2} + \frac{2}{2-\rho}\right]\\
+                        &= \left( \frac{1}{2} + \frac{\sqrt{3}}{3}\right)\rho^{n+1}
+                            + \left( \frac{1}{2} - \frac{\sqrt{3}}{3}\right) (2-\rho)^{n+1} \\
 \end{align*}
 \end{problem}
 \newpage
@@ -157,6 +170,7 @@ Then expand while keeping $(n-1)$ intact in order to apply $P(n-1)$ to obtain:
 $$\floor{\frac{n-1}{2}} \ceil{\frac{n-1}{2}}+n$$
 and to retrieve $(n+ 1)$ we write:
 \Large
+SKIP
 \end{problem}
 
 
