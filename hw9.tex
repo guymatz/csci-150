@@ -89,14 +89,14 @@ Hence $gcd(100, 254) = 2$
 \begin{problem} Find  the  greatest  common  divisor  of  100  and  254  using  the  Euclidean algorithm.
 \\\\
 \Large
-$$254 \; 100 \; 54 \; 46 \; 8 \; 6 \; 2 \; 0$$
+$$254 \; 100 \; 54 \; 46 \; 8 \; 6 \; \underline{2} \; 0$$
 \end{problem}
 \newpage
 
 \begin{problem} Express the $gcd(100,254)$ as a linear combination of 100 and 254.
 \\\\
 \Large
-$$254 * 13 + 100 * -33 = 2$$
+$$254 * 13 - 100 * 33 = 2$$
 \end{problem}
 \newpage
 
@@ -107,13 +107,14 @@ Towards a contradiction, let's assume that if $a|bc$ and $gcd(a,b) = 1$ then $a 
 
 We have $n \cdot a = b \cdot c$, where $n \in \mathbb{N}$, 
 then $n = \frac{b}{a} \cdot c$.  But then, if $c$ is not a multiple of $a$, 
-we are left with a fraction, but $n$ must be an integer, so we have a contraction.
+we are left with a fraction, but $n$ must be an integer, so we have a contradiction.
 \end{problem}
 \newpage
 
 \begin{problem} Let $F_n$ be the $n^{th}$ Fibonacci number.  What is the $gcd(F_{2021}, F_{2020})$?
 \\\\
 \Large
+$$1$$
 \end{problem}
 \newpage
 
@@ -130,6 +131,7 @@ we are left with a fraction, but $n$ must be an integer, so we have a contractio
 $$\prod_{i=0}^{3} \prod_{j=0}^{3}2^i \cdot 5^j$$
 $$= 2^0 \cdot 5^0 \cdot 2^1 \cdot 5^0 \cdot 2^2 \cdot 5^0 \cdot 2^3 \cdot 5^0 \cdot 2^0 \cdot 5^1 \cdot 2^1 \cdot 5^1 \cdot 2^2 \cdot 5^1 \cdot 2^3 \cdot 5^1 \cdot$$
 $$2^0 \cdot 5^2 \cdot 2^1 \cdot 5^2 \cdot 2^2 \cdot 5^2 \cdot 2^3 \cdot 5^2 \cdot 2^0 \cdot 5^3 \cdot 2^1 \cdot 5^3 \cdot 2^2 \cdot 5^3 \cdot 2^3 \cdot 5^3$$
+$$ = 1,000,000,000,000,000,000,000,000$$
 \end{problem}
 \newpage
 
@@ -138,7 +140,29 @@ $$5, -10, 20, -40, \dots$$
 $$ 1, 7, 49, 343$$
 \begin{problem} For each of the sequences above, find a recurrence of the form $a_n = Aa_{n-1}$ for $n \geq 1$, and solve for $a_n$ as a function of $n$.
 \\\\
-\Large
+\begin{enumerate}[label=\alph*)]
+\item $5, -10, 20, -40, \dots$
+$$a_n = -2 \cdot a_{n-1}$$
+We form the Auxiliary Equation: 
+$$x^2 = -2x$$
+which has two solutions 0 and -2.   Therefore, our solution for $a_n$ has the form:
+$$c_1(0)^n + c_2(-2)^n$$
+Let's determine $c_1$ and $c_2$ from one initial condition:
+$$a_1 = c_1(0)^1 + c_2(-2)^1 = -2c_2 = -10$$
+We obtain $c_2 = 5$.  Therefore,
+$$a_n = 5(-2)^n$$
+\\\\
+\item $1, 7, 49, 343, \dots$
+$$a_n = 7 \cdot a_{n-1}$$
+We form the Auxiliary Equation: 
+$$x^2 = 7x$$
+which has two solutions 0 and 7.   Therefore, our solution for $a_n$ has the form:
+$$c_1(0)^n + c_2(7)^n$$
+Let's determine $c_1$ and $c_2$ from one initial condition:
+$$a_1 = c_1(0)^1 + c_2(7)^1 = 7c_2 = 7$$
+We obtain $c_2 = 1$.  Therefore,
+$$a_n = 7^n$$
+\end{enumerate}
 \end{problem}
 \newpage
 
